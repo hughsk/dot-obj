@@ -1,0 +1,29 @@
+{
+  "name": "dot-obj",
+  "version": "0.0.0",
+  "description": "A generic parser for the .obj 3D geometry format",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/hughsk/dot-obj.git"
+  },
+  "keywords": [
+    "3d",
+    "model",
+    "parser",
+    "load",
+    "geometry",
+    "webgl"
+  ],
+  "author": "Hugh Kennedy <hughskennedy@gmail.com> (http://hughskennedy.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hughsk/dot-obj/issues"
+  },
+  "dependencies": {
+    "trim": "0.0.1"
+  }
+}
