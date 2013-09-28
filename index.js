@@ -1,5 +1,7 @@
 var trim = require('trim')
 
+module.exports = dotobj
+
 function dotobj(string) {
   var replacement = '/f$1$2$4\n/f$2$3$4'
   string = String(string)
@@ -19,6 +21,8 @@ function dotobj(string) {
     return [a, b, c, normals]
   }
   function createObject() {
+    vertinc += vertices ? vertices.length : 0
+
     var object = {
       positions: vertices = []
       , normals: normals = []
@@ -41,6 +45,7 @@ function dotobj(string) {
   var lines = string.split(/\n/g)
   var objects = []
   var object = createObject()
+  var vertinc = 0
 
   for (var i = 0; i < lines.length; i += 1) {
     var line = trim(lines[i])
@@ -62,30 +67,30 @@ function dotobj(string) {
     }
 
     if ((result = face_pattern1.exec(line)) !== null) {
-      result[1] = parseInt(result[1]) - 1
-      result[2] = parseInt(result[2]) - 1
-      result[3] = parseInt(result[3]) - 1
+      result[1] = parseInt(result[1]) - 1 - vertinc
+      result[2] = parseInt(result[2]) - 1 - vertinc
+      result[3] = parseInt(result[3]) - 1 - vertinc
       vector(faces, result)
       continue
     }
     if ((result = face_pattern2.exec(line)) !== null) {
-      result[1] = parseInt(result[2]) - 1
-      result[2] = parseInt(result[5]) - 1
-      result[3] = parseInt(result[8]) - 1
+      result[1] = parseInt(result[2]) - 1 - vertinc
+      result[2] = parseInt(result[5]) - 1 - vertinc
+      result[3] = parseInt(result[8]) - 1 - vertinc
       vector(faces, result)
       continue
     }
     if ((result = face_pattern3.exec(line)) !== null) {
-      result[1] = parseInt(result[2]) - 1
-      result[2] = parseInt(result[6]) - 1
-      result[3] = parseInt(result[10]) - 1
+      result[1] = parseInt(result[2]) - 1 - vertinc
+      result[2] = parseInt(result[6]) - 1 - vertinc
+      result[3] = parseInt(result[10]) - 1 - vertinc
       vector(faces, result)
       continue
     }
     if ((result = face_pattern4.exec(line)) !== null) {
-      result[1] = parseInt(result[2]) - 1
-      result[2] = parseInt(result[5]) - 1
-      result[3] = parseInt(result[8]) - 1
+      result[1] = parseInt(result[2]) - 1 - vertinc
+      result[2] = parseInt(result[5]) - 1 - vertinc
+      result[3] = parseInt(result[8]) - 1 - vertinc
       vector(faces, result)
       continue
     }
