@@ -1,6 +1,6 @@
 {
   "name": "dot-obj",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "A generic parser for the .obj 3D geometry format",
   "main": "index.js",
   "scripts": {
